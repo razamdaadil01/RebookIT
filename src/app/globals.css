@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Sora:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -36,4 +36,29 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #94A3B8;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Sora', sans-serif;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-900 transition-colors inline-flex items-center gap-2;
+  }
+  .btn-secondary {
+    @apply bg-white border border-[#E2E8F0] text-[#0F172A] px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-50 transition-colors inline-flex items-center gap-2;
+  }
+  .btn-danger {
+    @apply bg-[#EF4444] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-red-600 transition-colors inline-flex items-center gap-2;
+  }
+  .card {
+    @apply bg-white border border-[#E2E8F0] rounded-xl p-5 shadow-sm;
+  }
+  .input {
+    @apply w-full px-3 py-2 border border-[#E2E8F0] rounded-lg text-sm outline-none focus:ring-2 focus:ring-blue-100 focus:border-[#0F4C81] transition-all bg-white;
+  }
+  .table-row-hover {
+    @apply hover:bg-slate-50 transition-colors;
+  }
 }
