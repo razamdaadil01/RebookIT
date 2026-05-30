@@ -5,7 +5,7 @@ import StatusBadge from '@/components/StatusBadge'
 import Modal from '@/components/Modal'
 import ConfirmDialog from '@/components/ConfirmDialog'
 import DataTable from '@/components/DataTable'
-import { Eye, Ban, UserX, Search, Filter } from 'lucide-react'
+import { Eye, Ban, UserX, Search } from 'lucide-react'
 
 type User = {
   id: string
@@ -109,34 +109,29 @@ export default function UsersPage() {
   ]
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div>
         <h1 className="text-2xl font-bold text-text-primary">User Management</h1>
         <p className="text-sm text-text-secondary mt-1">Manage all registered users on the platform</p>
       </div>
 
-      {/* Tabs */}
-      <div className="flex gap-1 bg-slate-100 p-1 rounded-lg w-fit">
-        {TABS.map(t => (
-          <button key={t} onClick={() => setTab(t)}
-            className={`px-4 py-1.5 rounded-md text-sm font-medium transition-colors
-              ${tab === t ? 'bg-white text-primary shadow-sm' : 'text-slate-600 hover:text-slate-900'}`}>
-            {t}
-          </button>
-        ))}
-      </div>
-
-      {/* Filters */}
-      <div className="flex items-center gap-3">
-        <div className="relative flex-1 max-w-sm">
+      {/* Search + Tabs row */}
+      <div className="flex items-center justify-between gap-4">
+        <div className="relative w-72">
           <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
           <input value={search} onChange={e => setSearch(e.target.value)}
             placeholder="Search by name or email..."
             className="w-full pl-9 pr-4 py-2 text-sm border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" />
         </div>
-        <button className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border text-sm text-text-secondary hover:bg-slate-50">
-          <Filter size={15} /> Filter
-        </button>
+        <div className="flex gap-1 bg-slate-100 p-1 rounded-lg">
+          {TABS.map(t => (
+            <button key={t} onClick={() => setTab(t)}
+              className={`px-4 py-1.5 rounded-md text-sm font-medium transition-colors
+                ${tab === t ? 'bg-white text-primary shadow-sm' : 'text-slate-600 hover:text-slate-900'}`}>
+              {t}
+            </button>
+          ))}
+        </div>
       </div>
 
       <DataTable columns={columns} data={filtered} />

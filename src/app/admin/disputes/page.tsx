@@ -45,7 +45,7 @@ export default function DisputesPage() {
   const paginated = filtered.slice((page-1)*PAGE_SIZE, page*PAGE_SIZE)
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div>
         <h1 className="text-2xl font-bold text-text-primary">Reports & Disputes</h1>
         <p className="text-text-secondary text-sm mt-1">Handle user disputes and content reports.</p>
@@ -65,21 +65,21 @@ export default function DisputesPage() {
         ))}
       </div>
 
-      <div className="flex gap-1 border-b border-border overflow-x-auto">
-        {TABS.map(t => (
-          <button key={t} onClick={() => { setTab(t); setPage(1) }}
-            className={`px-4 py-2.5 text-sm font-medium whitespace-nowrap border-b-2 transition-colors
-              ${tab === t ? 'border-primary text-primary' : 'border-transparent text-text-secondary hover:text-text-primary'}`}>
-            {t}
-            {t === 'Open Disputes' && <span className="ml-1.5 bg-red-100 text-red-700 text-xs px-1.5 py-0.5 rounded-full">3</span>}
-          </button>
-        ))}
-      </div>
-
-      <div className="card p-4">
-        <div className="relative">
+      {/* Search + Tabs row */}
+      <div className="flex items-center justify-between gap-4">
+        <div className="relative w-72">
           <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-          <input value={search} onChange={e => { setSearch(e.target.value); setPage(1) }} placeholder="Search disputes..." className="input pl-9" />
+          <input value={search} onChange={e => { setSearch(e.target.value); setPage(1) }} placeholder="Search disputes..." className="w-full pl-9 pr-4 py-2 text-sm border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" />
+        </div>
+        <div className="flex gap-1 bg-slate-100 p-1 rounded-lg">
+          {TABS.map(t => (
+            <button key={t} onClick={() => { setTab(t); setPage(1) }}
+              className={`px-4 py-1.5 rounded-md text-sm font-medium whitespace-nowrap transition-colors
+                ${tab === t ? 'bg-white text-primary shadow-sm' : 'text-slate-600 hover:text-slate-900'}`}>
+              {t}
+              {t === 'Open Disputes' && <span className="ml-1.5 bg-red-100 text-red-700 text-xs px-1.5 py-0.5 rounded-full">3</span>}
+            </button>
+          ))}
         </div>
       </div>
 

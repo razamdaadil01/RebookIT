@@ -83,26 +83,28 @@ export default function ListingsPage() {
   ]
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div>
         <h1 className="text-2xl font-bold text-text-primary">Listing Management</h1>
         <p className="text-sm text-text-secondary mt-1">Review, approve, and manage all marketplace listings</p>
       </div>
 
-      <div className="flex gap-1 bg-slate-100 p-1 rounded-lg w-fit flex-wrap">
-        {TABS.map(t => (
-          <button key={t} onClick={() => setTab(t)}
-            className={`px-4 py-1.5 rounded-md text-sm font-medium transition-colors
-              ${tab === t ? 'bg-white text-primary shadow-sm' : 'text-slate-600 hover:text-slate-900'}`}>
-            {t} {t !== 'All' && <span className="ml-1 text-xs opacity-70">({LISTINGS.filter(l => l.status === t.toLowerCase()).length})</span>}
-          </button>
-        ))}
-      </div>
-
-      <div className="relative max-w-sm">
-        <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-        <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search listings..."
-          className="w-full pl-9 pr-4 py-2 text-sm border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" />
+      {/* Search + Tabs row */}
+      <div className="flex items-center justify-between gap-4">
+        <div className="relative w-72">
+          <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+          <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search listings..."
+            className="w-full pl-9 pr-4 py-2 text-sm border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" />
+        </div>
+        <div className="flex gap-1 bg-slate-100 p-1 rounded-lg flex-wrap justify-end">
+          {TABS.map(t => (
+            <button key={t} onClick={() => setTab(t)}
+              className={`px-4 py-1.5 rounded-md text-sm font-medium transition-colors
+                ${tab === t ? 'bg-white text-primary shadow-sm' : 'text-slate-600 hover:text-slate-900'}`}>
+              {t} {t !== 'All' && <span className="ml-1 text-xs opacity-70">({LISTINGS.filter(l => l.status === t.toLowerCase()).length})</span>}
+            </button>
+          ))}
+        </div>
       </div>
 
       <DataTable columns={columns} data={filtered} />
