@@ -41,7 +41,7 @@ export default function ModerationPage() {
   const paginated = filtered.slice((page-1)*PAGE_SIZE, page*PAGE_SIZE)
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div>
         <h1 className="text-2xl font-bold text-text-primary">Content Moderation</h1>
         <p className="text-text-secondary text-sm mt-1">Review AI-flagged content and take appropriate actions.</p>
@@ -66,19 +66,20 @@ export default function ModerationPage() {
         </div>
       </div>
 
-      <div className="card p-4">
-        <div className="flex flex-col sm:flex-row gap-3">
-          <div className="relative flex-1">
-            <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-            <input value={search} onChange={e => { setSearch(e.target.value); setPage(1) }} placeholder="Search flagged content..." className="input pl-9" />
-          </div>
-          <select value={typeFilter} onChange={e => { setTypeFilter(e.target.value); setPage(1) }} className="input sm:w-36">
+      {/* Search + Filters row */}
+      <div className="flex items-center justify-between gap-4">
+        <div className="relative w-72">
+          <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+          <input value={search} onChange={e => { setSearch(e.target.value); setPage(1) }} placeholder="Search flagged content..." className="w-full pl-9 pr-4 py-2 text-sm border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" />
+        </div>
+        <div className="flex items-center gap-2">
+          <select value={typeFilter} onChange={e => { setTypeFilter(e.target.value); setPage(1) }} className="px-3 py-2 text-sm border border-border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary">
             <option value="All">All Types</option>
             <option value="Listing">Listings</option>
             <option value="Message">Messages</option>
             <option value="Profile">Profiles</option>
           </select>
-          <button className="btn-secondary"><Filter size={15} />Confidence</button>
+          <button className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border text-sm text-text-secondary hover:bg-slate-50"><Filter size={15} />Confidence</button>
         </div>
       </div>
 

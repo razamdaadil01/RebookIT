@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Search, Filter, Eye, RefreshCw, ChevronLeft, ChevronRight, X, DollarSign, TrendingUp, Clock } from 'lucide-react'
+import { Search, Eye, RefreshCw, ChevronLeft, ChevronRight, X, DollarSign, TrendingUp, Clock } from 'lucide-react'
 import StatusBadge from '@/components/StatusBadge'
 
 const transactions = [
@@ -44,7 +44,7 @@ export default function PaymentsPage() {
   const pendingAmount = transactions.filter(t => t.status === 'Pending').reduce((a, t) => a + t.amount, 0)
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div>
         <h1 className="text-2xl font-bold text-text-primary">Payment & Transactions</h1>
         <p className="text-text-secondary text-sm mt-1">Monitor all payment transactions across the platform.</p>
@@ -65,21 +65,18 @@ export default function PaymentsPage() {
         </div>
       </div>
 
-      <div className="flex gap-1 border-b border-border overflow-x-auto">
-        {TABS.map(t => (
-          <button key={t} onClick={() => { setTab(t); setPage(1) }}
-            className={`px-4 py-2.5 text-sm font-medium whitespace-nowrap border-b-2 transition-colors
-              ${tab === t ? 'border-primary text-primary' : 'border-transparent text-text-secondary hover:text-text-primary'}`}>{t}</button>
-        ))}
-      </div>
-
-      <div className="card p-4">
-        <div className="flex flex-col sm:flex-row gap-3">
-          <div className="relative flex-1">
-            <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-            <input value={search} onChange={e => { setSearch(e.target.value); setPage(1) }} placeholder="Search by transaction ID, buyer, or seller..." className="input pl-9" />
-          </div>
-          <button className="btn-secondary"><Filter size={15} />Date Range</button>
+      {/* Search + Tabs row */}
+      <div className="flex items-center justify-between gap-4">
+        <div className="relative w-80">
+          <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+          <input value={search} onChange={e => { setSearch(e.target.value); setPage(1) }} placeholder="Search by transaction ID, buyer, or seller..." className="w-full pl-9 pr-4 py-2 text-sm border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" />
+        </div>
+        <div className="flex gap-1 bg-slate-100 p-1 rounded-lg">
+          {TABS.map(t => (
+            <button key={t} onClick={() => { setTab(t); setPage(1) }}
+              className={`px-4 py-1.5 rounded-md text-sm font-medium whitespace-nowrap transition-colors
+                ${tab === t ? 'bg-white text-primary shadow-sm' : 'text-slate-600 hover:text-slate-900'}`}>{t}</button>
+          ))}
         </div>
       </div>
 
