@@ -52,6 +52,34 @@ const INITIAL_CATEGORIES: Category[] = [
   ]},
   { id: 'c7', icon: '📚', name: 'Books & Education', count: 234, active: true },
   { id: 'c8', icon: '⚽', name: 'Sports & Outdoors', count: 178, active: false },
+  { id: 'c9', icon: '🤝', name: 'Support Services & Communities', count: 64, active: true, children: [
+    { id: 'c9a', icon: '🎓', name: 'Alumnae Associations', count: 12, active: true },
+    { id: 'c9b', icon: '🏫', name: 'Education Industry Associations', count: 8, active: true },
+    { id: 'c9c', icon: '📋', name: 'Educational Assessments & Counselling Services', count: 11, active: true },
+    { id: 'c9d', icon: '🏛️', name: 'Government and Financial Welfare', count: 9, active: true },
+    { id: 'c9e', icon: '🧠', name: 'Neurodivergent Support & Specialised Learning', count: 7, active: true },
+    { id: 'c9f', icon: '🥗', name: 'Dieticians', count: 6, active: true },
+    { id: 'c9g', icon: '🌍', name: 'Community & Non-Profit Programmes', count: 11, active: true },
+  ]},
+  { id: 'c10', icon: '💾', name: 'Digital Resources', count: 198, active: true, children: [
+    { id: 'c10a', icon: '📖', name: 'E-Books', count: 74, active: true },
+    { id: 'c10b', icon: '📗', name: 'Digital Textbooks', count: 62, active: true },
+    { id: 'c10c', icon: '🎮', name: 'Games', count: 41, active: true },
+    { id: 'c10d', icon: '📝', name: 'Past Papers', count: 21, active: true },
+  ]},
+  { id: 'c11', icon: '🖥️', name: 'E-Learning Platforms', count: 43, active: true, children: [
+    { id: 'c11a', icon: '🤖', name: 'AI Tutors', count: 18, active: true },
+    { id: 'c11b', icon: '🌐', name: 'Online Learning Platforms', count: 25, active: true },
+  ]},
+  { id: 'c12', icon: '🚌', name: 'Student Transportation', count: 87, active: true, children: [
+    { id: 'c12a', icon: '🚍', name: 'Public Passenger Services', count: 52, active: true },
+    { id: 'c12b', icon: '🚗', name: 'Private Passenger Services', count: 35, active: true },
+  ]},
+  { id: 'c13', icon: '🎽', name: 'School Memorabilia & Merchandise', count: 56, active: true },
+  { id: 'c14', icon: '🏠', name: 'Student Housing', count: 72, active: true, children: [
+    { id: 'c14a', icon: '🏢', name: 'On-Campus Residences', count: 31, active: true },
+    { id: 'c14b', icon: '🏡', name: 'Off-Campus Residences', count: 41, active: true },
+  ]},
 ]
 
 export default function CategoriesPage() {
