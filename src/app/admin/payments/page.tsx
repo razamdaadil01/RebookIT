@@ -53,15 +53,15 @@ export default function PaymentsPage() {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="card flex items-center gap-4">
           <div className="w-11 h-11 bg-green-100 rounded-xl flex items-center justify-center"><DollarSign size={22} className="text-success" /></div>
-          <div><p className="text-xs text-text-secondary font-medium">Total Revenue</p><p className="text-xl font-bold text-text-primary">TTD ${totalRevenue.toLocaleString()}</p></div>
+          <div><p className="text-xs text-text-secondary font-medium">Total Revenue</p><p className="text-xl font-bold text-text-primary">J${totalRevenue.toLocaleString()}</p></div>
         </div>
         <div className="card flex items-center gap-4">
           <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center"><TrendingUp size={22} className="text-primary" /></div>
-          <div><p className="text-xs text-text-secondary font-medium">This Month</p><p className="text-xl font-bold text-text-primary">TTD ${monthRevenue.toLocaleString()}</p></div>
+          <div><p className="text-xs text-text-secondary font-medium">This Month</p><p className="text-xl font-bold text-text-primary">J${monthRevenue.toLocaleString()}</p></div>
         </div>
         <div className="card flex items-center gap-4">
           <div className="w-11 h-11 bg-yellow-100 rounded-xl flex items-center justify-center"><Clock size={22} className="text-warning" /></div>
-          <div><p className="text-xs text-text-secondary font-medium">Pending Settlement</p><p className="text-xl font-bold text-text-primary">TTD ${pendingAmount.toLocaleString()}</p></div>
+          <div><p className="text-xs text-text-secondary font-medium">Pending Settlement</p><p className="text-xl font-bold text-text-primary">J${pendingAmount.toLocaleString()}</p></div>
         </div>
       </div>
 
@@ -97,7 +97,7 @@ export default function PaymentsPage() {
                   <td className="py-3 px-4 text-text-primary">{txn.buyer}</td>
                   <td className="py-3 px-4 text-text-secondary">{txn.seller}</td>
                   <td className="py-3 px-4 text-text-primary max-w-[150px] truncate">{txn.item}</td>
-                  <td className="py-3 px-4 font-semibold text-text-primary">TTD ${txn.amount.toLocaleString()}</td>
+                  <td className="py-3 px-4 font-semibold text-text-primary">J${txn.amount.toLocaleString()}</td>
                   <td className="py-3 px-4 text-text-secondary text-xs">{txn.gateway}</td>
                   <td className="py-3 px-4 text-text-secondary text-xs whitespace-nowrap">{txn.date}</td>
                   <td className="py-3 px-4"><StatusBadge status={txn.status} /></td>
@@ -141,7 +141,7 @@ export default function PaymentsPage() {
                 ['Buyer', selected.buyer],
                 ['Seller', selected.seller],
                 ['Item', selected.item],
-                ['Amount', `TTD $${selected.amount.toLocaleString()}`],
+                ['Amount', `J$${selected.amount.toLocaleString()}`],
                 ['Gateway', selected.gateway],
                 ['Date', selected.date],
                 ['Gateway Ref', `PTZ-${Math.random().toString(36).substr(2,9).toUpperCase()}`],

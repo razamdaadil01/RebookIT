@@ -50,8 +50,8 @@ export default function ReferralsPage() {
         {[
           { label: 'Total Referrals', value: '847', icon: <Users size={20} className="text-primary" />, bg: 'bg-primary/10' },
           { label: 'Active Referrers', value: '234', icon: <Gift size={20} className="text-purple-600" />, bg: 'bg-purple-100' },
-          { label: 'Commission Paid', value: 'TTD $12,400', icon: <DollarSign size={20} className="text-success" />, bg: 'bg-green-100' },
-          { label: 'Commission Pending', value: 'TTD $3,200', icon: <Clock size={20} className="text-warning" />, bg: 'bg-yellow-100' },
+          { label: 'Commission Paid', value: 'J$12,400', icon: <DollarSign size={20} className="text-success" />, bg: 'bg-green-100' },
+          { label: 'Commission Pending', value: 'J$3,200', icon: <Clock size={20} className="text-warning" />, bg: 'bg-yellow-100' },
         ].map(stat => (
           <div key={stat.label} className="card flex items-center gap-3">
             <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${stat.bg}`}>{stat.icon}</div>
@@ -88,7 +88,7 @@ export default function ReferralsPage() {
                     <td className="py-3 px-4 text-text-secondary">{r.referred}</td>
                     <td className="py-3 px-4 text-text-secondary text-xs">{r.date}</td>
                     <td className="py-3 px-4"><StatusBadge status={r.status} /></td>
-                    <td className="py-3 px-4 font-semibold text-success">TTD ${r.commission}</td>
+                    <td className="py-3 px-4 font-semibold text-success">J${r.commission}</td>
                   </tr>
                 ))}
               </tbody>
@@ -125,7 +125,7 @@ export default function ReferralsPage() {
                 </div>
               </div>
               <div>
-                <label className="text-xs font-medium text-text-secondary block mb-1">Min Withdrawal (TTD)</label>
+                <label className="text-xs font-medium text-text-secondary block mb-1">Min Withdrawal (J$)</label>
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-text-secondary">$</span>
                   <input value={minWithdraw} onChange={e => setMinWithdraw(e.target.value)} type="number" className="input pl-7" />
@@ -142,7 +142,7 @@ export default function ReferralsPage() {
                 <div key={item.id} className="p-3 bg-slate-50 rounded-lg">
                   <div className="flex items-center justify-between mb-1">
                     <p className="text-sm font-medium text-text-primary">{item.seller}</p>
-                    <span className="text-sm font-bold text-accent">TTD ${item.amount}</span>
+                    <span className="text-sm font-bold text-accent">J${item.amount}</span>
                   </div>
                   <p className="text-xs text-text-secondary mb-2">{item.type} · {item.date}</p>
                   <div className="flex gap-2">
@@ -161,7 +161,7 @@ export default function ReferralsPage() {
           <div className="absolute inset-0 bg-black/40" onClick={() => setConfirmAction(null)} />
           <div className="relative bg-white rounded-2xl shadow-xl w-full max-w-sm p-6">
             <h3 className="text-base font-semibold">{confirmAction.action} Commission</h3>
-            <p className="text-sm text-text-secondary mt-2">Are you sure you want to {confirmAction.action.toLowerCase()} TTD ${confirmAction.item.amount} commission for {confirmAction.item.seller}?</p>
+            <p className="text-sm text-text-secondary mt-2">Are you sure you want to {confirmAction.action.toLowerCase()} J${confirmAction.item.amount} commission for {confirmAction.item.seller}?</p>
             <div className="flex gap-2 mt-5">
               <button onClick={() => setConfirmAction(null)} className="flex-1 btn-secondary justify-center">Cancel</button>
               <button onClick={() => setConfirmAction(null)} className={`flex-1 justify-center ${confirmAction.action === 'Reject' ? 'btn-danger' : 'btn-primary'}`}>Confirm</button>
