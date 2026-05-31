@@ -89,13 +89,13 @@ const USER_ACTIVITY: Record<string, ActivityEvent[]> = {
   U001: [
     { action: 'Account Created', detail: 'Joined via web signup', date: 'Jan 12, 2024', icon: 'join' },
     { action: 'KYC Verified', detail: 'Identity documents approved', date: 'Jan 15, 2024', icon: 'verify' },
-    { action: 'Posted Listing', detail: 'iPhone 14 Pro 256GB — TTD $4,500', date: 'May 20, 2026', icon: 'listing' },
+    { action: 'Posted Listing', detail: 'iPhone 14 Pro 256GB — J$4,500', date: 'May 20, 2026', icon: 'listing' },
     { action: 'Sale Completed', detail: 'Sony WH-1000XM5 sold to Kezia Phillip', date: 'May 12, 2026', icon: 'purchase' },
     { action: 'Purchase Made', detail: 'Bought PS5 Console from Devon Rampersad', date: 'Apr 30, 2026', icon: 'purchase' },
   ],
   U007: [
     { action: 'Account Created', detail: 'Joined via referral link', date: 'Mar 5, 2024', icon: 'join' },
-    { action: 'Posted Listing', detail: 'Nike Air Max 270 — TTD $650', date: 'Apr 10, 2026', icon: 'listing' },
+    { action: 'Posted Listing', detail: 'Nike Air Max 270 — J$650', date: 'Apr 10, 2026', icon: 'listing' },
     { action: 'Report Received', detail: 'Reported for Counterfeit Item by Kezia Phillip', date: 'May 18, 2026', icon: 'report' },
     { action: 'Account Suspended', detail: 'Suspended pending investigation', date: 'May 19, 2026', icon: 'warn' },
   ],
@@ -361,7 +361,7 @@ function UserDrawer({
                         <p className="text-xs text-text-secondary">{l.category} · {l.date}</p>
                       </div>
                       <div className="text-right shrink-0">
-                        <p className="text-sm font-semibold text-text-primary">TTD ${l.price.toLocaleString()}</p>
+                        <p className="text-sm font-semibold text-text-primary">J${l.price.toLocaleString()}</p>
                         <StatusBadge status={l.status} />
                       </div>
                     </div>
@@ -393,7 +393,7 @@ function UserDrawer({
                       </div>
                       <div className="text-right shrink-0 space-y-1">
                         <p className={`text-sm font-semibold ${t.type === 'sell' ? 'text-success' : 'text-text-primary'}`}>
-                          {t.type === 'sell' ? '+' : '-'}TTD ${t.amount.toLocaleString()}
+                          {t.type === 'sell' ? '+' : '-'}J${t.amount.toLocaleString()}
                         </p>
                         <StatusBadge status={t.status} />
                       </div>

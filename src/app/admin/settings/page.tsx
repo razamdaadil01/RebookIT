@@ -13,7 +13,7 @@ const adminUsers = [
 const auditLog = [
   { id: 1, admin: 'Super Admin', action: 'Suspended user: Simone Baptiste', timestamp: 'May 28, 2026 09:41', ip: '192.168.1.1' },
   { id: 2, admin: 'Kavita Sharma', action: 'Approved listing: iPhone 14 Pro (#1001)', timestamp: 'May 28, 2026 09:12', ip: '192.168.1.2' },
-  { id: 3, admin: 'Dylan Peters', action: 'Processed payout: PAY-2040 (TTD $8,700)', timestamp: 'May 27, 2026 15:33', ip: '192.168.1.3' },
+  { id: 3, admin: 'Dylan Peters', action: 'Processed payout: PAY-2040 (J$8,700)', timestamp: 'May 27, 2026 15:33', ip: '192.168.1.3' },
   { id: 4, admin: 'Renée Augustin', action: 'Removed flagged listing: Fake Rolex #MOD-4021', timestamp: 'May 27, 2026 14:18', ip: '192.168.1.4' },
   { id: 5, admin: 'Super Admin', action: 'Updated commission rate to 5%', timestamp: 'May 27, 2026 10:05', ip: '192.168.1.1' },
   { id: 6, admin: 'Kavita Sharma', action: 'Resolved dispute: DIS-1044', timestamp: 'May 26, 2026 16:47', ip: '192.168.1.2' },
@@ -144,7 +144,7 @@ export default function SettingsPage() {
               <div className="relative"><input type="number" defaultValue="5" min="0" max="20" className="input pr-8" /><span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-text-secondary">%</span></div>
             </div>
             <div>
-              <label className="text-sm font-medium text-text-primary block mb-1.5">Min Payout (TTD)</label>
+              <label className="text-sm font-medium text-text-primary block mb-1.5">Min Payout (J$)</label>
               <div className="relative"><span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-text-secondary">$</span><input type="number" defaultValue="100" className="input pl-7" /></div>
             </div>
             <div>
@@ -153,7 +153,7 @@ export default function SettingsPage() {
             </div>
           </div>
           <div className="flex items-center justify-between p-4 bg-slate-50 rounded-xl">
-            <div><p className="text-sm font-medium">Auto-Approve Payouts</p><p className="text-xs text-text-secondary mt-0.5">Auto-approve payouts under TTD $500</p></div>
+            <div><p className="text-sm font-medium">Auto-Approve Payouts</p><p className="text-xs text-text-secondary mt-0.5">Auto-approve payouts under J$500</p></div>
             <button className="relative w-11 h-6 rounded-full bg-slate-300"><span className="absolute top-1 left-1 w-4 h-4 bg-white rounded-full shadow" /></button>
           </div>
           {saved ? (
